@@ -10,6 +10,7 @@ OBS-portal
          
           <li class="selected"><a href="/portal">portal</a></li>
           <li><a href="/portal/profile">🚹{{session('username')}}</a></li>
+          
           <li><a href="/logout">Logout</a></li>
         </ul>
 @endsection
@@ -33,66 +34,26 @@ OBS-portal
 <h1>Customer view portal</h1>
 
   <form   method="post">
-<table style="width:500px;" align="left" border="1" cellspacing="10" >
+<table style="width:1200px;" align="left" border="1" cellspacing="10" >
     <tr>
-      <td colspan="7"><mark> CHOOSE BOOK CATEGORY  </mark></td>
-
-    </tr>
-
-    <tr>
-      <td>
-
-
-<select  name="b_category" id="mySelect2">
-                <?php
-
-                for ($x = 0; $x <(count($categoryList)); $x++) {
-    echo "<option value='".$categoryList[$x]->c_category."'>".$categoryList[$x]->c_category."</option>";
- }
-       ?>
-
-  
-              </select>
-              </td>
-
-              </tr>
-
-              <tr>
-      <td>
-
-
-
-              <p ><span></span><input class="submit" type="submit" name="name" value="Submit" /></p>
-
-</td>
-
-              </tr>
-
-            </table>
-          </form>
-
-
-
-
-          <table style="width:400px;" align="left" border="1" cellspacing="10" >
-    <tr>
-      <td colspan="7"><mark> Book LIST </mark></td>
+      <td colspan="7">BOOKs FROM: <mark> {{$bookListByCategory[0]->b_category}}</mark> CATEGORY</td>
       
         
         
     </tr>
-    <tr align="center" bgcolor="#64e885" >
+   <tr align="center" bgcolor="#64e885" >
       <td>ID</td>
       <td>NAME</td>
       <td>CATEGORY</td>
       <td>PRICE</td>
       <td>AUTHOR</td>
       <td>DESCRIPTION</td>
+      <td>DETAILS</td>
      
      
     </tr>
 
-    @foreach ($bookList as $s) 
+    @foreach ($bookListByCategory as $s) 
       <tr  >
 
 
@@ -103,13 +64,18 @@ OBS-portal
         <td  bgcolor="#1bf7f7" >{{$s->b_author}}</td>
         <td  bgcolor="#1bf7f7" >{{$s->b_description}}</td>
        
+        <td>
+           <a  href="">➠</a>
+            
         
-        
+         
+        </td>
       </tr>
        @endforeach
    
     </table>
 
+          </form>
 
 
 

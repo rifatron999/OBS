@@ -119,6 +119,9 @@ Route::post('/portal/addBookView','adminController@addBook');
 
 //customer stars
 Route::get('/portal/customer','customerController@index')->name('customer.index');
+Route::get('/portal/customer/bookListCategoryWise/{b_category}','customerController@bookListCategoryWise2')->name('customer.bookListCategoryWise');
+
+Route::post('/portal/customer','customerController@bookListCategoryWise');
 //customer ends
 
 //******************************************************************************
