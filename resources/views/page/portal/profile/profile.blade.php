@@ -1,16 +1,16 @@
 @extends('page.layout.main')
 
 @section('title')
-UMS-Profile
+OBS-Profile
 @endsection
 
 @section('menubar')
 <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-          <li><a href="/home">Home</a></li>
-          <li> <a href="/portal">portal</a></li>
-          <li class="selected">><a href="/portal/profile">🚹{{session('username')}}</a></li>
-        
+          <li><a href="/portal">portal</a></li>
+          <li class="selected" ><a href="/portal/profile">🚹{{session('username')}}</a></li>
+          <li ><a href="{{route('admin.addCategoryView')}}">ADD CATEGORY</a></li>
+          <li  ><a href="{{route('admin.addBookView')}}">PUBLISH BOOK</a></li>
           
           <li><a href="/logout">Logout</a></li>
         </ul>
@@ -43,11 +43,11 @@ UMS-Profile
 
             <p><span>Email Address</span><input placeholder="*"class="contact" type="email" name="u_email" value="{{session('u_email')}}" /></p>
 
-            <p><span>Contact Number</span><input placeholder="The Contact number should be unique" class="contact" type="number" name="u_phone" value="{{session('u_phone')}}" /></p>
+           
 
             <p><span>DOB</span><input  class="contact" type="date" name="u_dob" value="{{session('u_dob')}}" /></p>
 
-            <p><span>Picture</span><input class="contact" type="file" name="u_pic" value="" /></p>
+  
 
             <p><span>Password</span><input placeholder="*" class="contact" type="Password" name="u_password" value="{{session('u_password')}}" /></p>
             <p><span>Confirm Password</span><input placeholder="*" class="contact" type="Password" name="uc_password" value="" /></p>

@@ -61,11 +61,11 @@ Route::group(['middleware'=>['session_check']], function(){
 
 Route::get('/portal','portalController@index')->name('portal.index');
 
-//profile starts
-/*Route::get('/portal/profile','portalController@profile')->name('portal.profile');
-Route::post('/portal/profile', 'portalController@updateProfile');*/ 
+//profile starts******************************************************************
+Route::get('/portal/profile','portalController@profile')->name('portal.profile');
+Route::post('/portal/profile', 'portalController@updateProfile'); 
 
-//profile ends
+//profile ends*********************************************************************
 
 
 //preReg starts

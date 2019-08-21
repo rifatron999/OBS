@@ -53,8 +53,8 @@ public function profile()
             
             'u_name'=>'required',
             'u_email'=>'required',
-            'u_phone'=>'required',
-            'u_pic'=>'required',
+           
+          
             'u_dob'=>'required',
             'u_password'=>'required',
             'uc_password'=>'required|same:u_password',
@@ -72,15 +72,15 @@ DB::table('t_users')->where('u_name', $req->session()->get('username'))
          
     'u_name' => $req->u_name ,
     'u_email' => $req->u_email ,
-    'u_phone' => $req->u_phone,
+   
     'u_dob' => $req->u_dob,
-    'u_pic' => $req->u_pic,
+   
     'u_password' => $req->u_password
     
 ]);
 
 
-DB::table('t_course_faculty')->where('c_faculty_faculty', $req->session()->get('username'))
+/*DB::table('t_course_faculty')->where('c_faculty_faculty', $req->session()->get('username'))
 ->update([
     
          
@@ -140,7 +140,7 @@ DB::table('t_room_request')->where('r_faculty', $req->session()->get('username')
     
     
 ]);
-
+*/
 
 
 
