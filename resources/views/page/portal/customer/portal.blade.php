@@ -10,6 +10,8 @@ OBS-portal
          
           <li class="selected"><a href="/portal">portal</a></li>
           <li><a href="/portal/profile">🚹{{session('username')}}</a></li>
+                    <li><a href="{{route('customer.myCart',session()->get('username'))}}">🛒</a></li>
+
           <li><a href="/logout">Logout</a></li>
         </ul>
 @endsection
@@ -33,9 +35,9 @@ OBS-portal
 <h1>Customer view portal</h1>
 
   <form   method="post">
-<table style="width:500px;" align="left" border="1" cellspacing="10" >
+<table style="width:500px;" align="left"  cellspacing="10" >
     <tr>
-      <td colspan="7"><mark> CHOOSE BOOK CATEGORY  </mark></td>
+      <td colspan="7"><mark> SELECT CATEGORY   </mark></td>
 
     </tr>
 
@@ -74,9 +76,9 @@ OBS-portal
 
 
 
-          <table style="width:400px;" align="left" border="1" cellspacing="10" >
+          <table style="width:400px;" align="left"  cellspacing="10" >
     <tr>
-      <td colspan="7"><mark> Book LIST </mark></td>
+      <td colspan="7"><mark> ALL BOOK LIST </mark></td>
       
         
         
@@ -88,6 +90,7 @@ OBS-portal
       <td>PRICE</td>
       <td>AUTHOR</td>
       <td>DESCRIPTION</td>
+      <td>DETAILS</td>
      
      
     </tr>
@@ -102,6 +105,12 @@ OBS-portal
         <td  bgcolor="#1bf7f7" >{{$s->b_price}}</td>
         <td  bgcolor="#1bf7f7" >{{$s->b_author}}</td>
         <td  bgcolor="#1bf7f7" >{{$s->b_description}}</td>
+        <td>
+           <a  href="{{route('customer.bookDetails',$s->b_id)}}">➠</a>
+            
+        
+         
+        </td>
        
         
         

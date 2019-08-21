@@ -10,6 +10,8 @@ OBS-portal
          
           <li class="selected"><a href="/portal">portal</a></li>
           <li><a href="/portal/profile">🚹{{session('username')}}</a></li>
+                   <li><a href="{{route('customer.myCart',session()->get('username'))}}">🛒</a></li>
+
           
           <li><a href="/logout">Logout</a></li>
         </ul>
@@ -65,7 +67,7 @@ OBS-portal
         <td  bgcolor="#1bf7f7" >{{$s->b_description}}</td>
        
         <td>
-           <a  href="">➠</a>
+           <a  href="{{route('customer.bookDetails',$s->b_id)}}">➠</a>
             
         
          

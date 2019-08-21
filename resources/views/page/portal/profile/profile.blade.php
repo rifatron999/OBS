@@ -9,8 +9,7 @@ OBS-Profile
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
           <li><a href="/portal">portal</a></li>
           <li class="selected" ><a href="/portal/profile">🚹{{session('username')}}</a></li>
-          <li ><a href="{{route('admin.addCategoryView')}}">ADD CATEGORY</a></li>
-          <li  ><a href="{{route('admin.addBookView')}}">PUBLISH BOOK</a></li>
+          
           
           <li><a href="/logout">Logout</a></li>
         </ul>

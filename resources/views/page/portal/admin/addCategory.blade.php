@@ -38,7 +38,7 @@ UMS-Add Category
 <h1>Admin view portal</h1>
 
 
-<table style="width:300px;" align="left" border="1" cellspacing="10" >
+<table style="width:300px;" align="left"  cellspacing="10" >
     <tr>
       <td colspan="7"><mark> Category LIST </mark></td>
       
@@ -70,7 +70,7 @@ UMS-Add Category
 
 
 
-    <table  style="width:500px;" align="center" border="1" cellspacing="10" >
+    <table  style="width:500px;" align="center"  cellspacing="10" >
    <tr style="outline: thin solid" align="center">
       
       <td colspan="2" >ADD Category</td>
