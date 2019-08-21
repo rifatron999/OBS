@@ -104,16 +104,22 @@ Route::post('/portal/preRegistration/register/{c_admin_id}', 'preRegController@u
 
 //preReg ends
 
+//********************************************************************
+
 //admin starts
 Route::get('/portal/admin','adminController@index')->name('admin.index');
-
+Route::get('/portal/addCategoryView','adminController@addCategoryView')->name('admin.addCategoryView');
 Route::get('/portal/admin/{u_id}','adminController@removeUser')->name('admin.removeUser');
+
+Route::post('/portal/addCategoryView','adminController@addCategory');
 //admin ends
 
 
 //customer stars
 Route::get('/portal/customer','customerController@index')->name('customer.index');
 //customer ends
+
+//******************************************************************************
 
 
 

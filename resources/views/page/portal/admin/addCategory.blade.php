@@ -8,9 +8,9 @@ UMS-portal
 <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
          
-          <li class="selected"><a href="/portal">portal</a></li>
+          <li><a href="/portal">portal</a></li>
           <li><a href="/portal/profile">🚹{{session('username')}}</a></li>
-          <li><a href="{{route('admin.addCategoryView')}}">ADD CATEGORY</a></li>
+          <li class="selected"><a href="{{route('admin.addCategoryView')}}">ADD CATEGORY</a></li>
           <li><a href="/logout">Logout</a></li>
         </ul>
 @endsection
@@ -34,53 +34,63 @@ UMS-portal
 <h1>Admin view portal</h1>
 
 
-<table style="width:1200px;" align="left" border="1" cellspacing="10" >
+<table style="width:300px;" align="left" border="1" cellspacing="10" >
     <tr>
-      <td colspan="7"><mark> USER LIST </mark></td>
+      <td colspan="7"><mark> Category LIST </mark></td>
       
         
         
     </tr>
     <tr align="center" bgcolor="#64e885" >
-      <td>USER ID</td>
-      <td>USER NAME</td>
+      <td>ID</td>
+      <td>Category</td>
      
-      <td>USER D-O-B</td>
-      <td>USER GENDER</td>
-      <td>USER EMAIL</td>
-      <td>USER TYPE</td>
-      <td>ACTION</td>
+     
     </tr>
 
-    @foreach ($totalUserList as $s) 
+    @foreach ($categoryList as $s) 
       <tr  >
 
 
-        <td bgcolor="#faa693" >{{$s->u_id}}</td>
-        <td  bgcolor="#1bf7f7" >{{$s->u_name}}</td>
+        <td bgcolor="#faa693" >{{$s->c_id}}</td>
+        <td  bgcolor="#1bf7f7" >{{$s->c_category}}</td>
        
-        <td bgcolor="#1bf7f7" >{{$s->u_dob}}</td>
-        <td bgcolor="#faa693" >{{$s->u_gender}}</td>
-        <td bgcolor="#1bf7f7" >{{$s->u_email}}</td>
-        <td bgcolor="#1bf7f7" >{{$s->u_type}}</td>
-        <td bgcolor="#64e885" >
-
-        <?php
-        if($s->u_type == 'customer')
-        { ?>
-           <a  href="{{route('admin.removeUser',$s->u_id )}}">✘</a>
-            <?php
-
-        }
-
-?>
         
-         
-        </td>
+        
       </tr>
        @endforeach
    
     </table>
+
+
+
+
+
+    <table  style="width:500px;" align="center" border="1" cellspacing="10" >
+   <tr style="outline: thin solid" align="center">
+      
+      <td colspan="2" >ADD Category</td>
+      
+    </tr>
+  <form   method="post">
+    
+    
+
+    <tr style="outline: thin solid" ><td> <p><input class="a" placeholder="Write new category here *"  name="c_category"></p></td>
+     
+     </tr>
+     <br>
+
+            <tr style="outline: thin solid" >
+
+            
+
+            <td><p ><span></span><input class="submit" type="submit" name="name" value="Submit" /></p> </td></tr>
+          
+        
+          </form>
+        </table>
+
 
 
 

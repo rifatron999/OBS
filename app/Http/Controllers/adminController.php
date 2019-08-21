@@ -47,7 +47,7 @@ $facultySlideList	= DB::table('t_users')->where('u_id', $u_id)
 ->get();*/
 
 
-		 return back()->with('msg', "✘ USER REMOVED");
+		 return back()->with('msg', "✔ USER REMOVED");
 		}
 	
 	else{
@@ -57,6 +57,88 @@ $facultySlideList	= DB::table('t_users')->where('u_id', $u_id)
 	}
 	//removeUser ends
 
+
+
+
+
+//*************    add category page starts       ************
+
+	
+
+
+
+	//addCategoryView starts
+
+
+     public function addCategoryView(Request $request){
+    	if($request->session()->get('type') == 'admin'){
+
+$categoryList	= DB::table('t_category')->get();
+
+/*$facultySemList	= DB::table('t_semester')->get();*/
+
+//echo $categoryList;
+
+
+		return view('page.portal.admin.addCategory',  ['categoryList' => $categoryList]/*,['facultySemList' => $facultySemList]*/);
+		}
+	else{
+		$request->session()->flash('msg', "UNAUTHORIZED");
+            return redirect()->route('login.index');
+        }
+	}
+	//addCategoryView ends
+
+//addCategory STARTS
+
+	 public function addCategory(Request $req){
+		
+		
+       $req->validate([
+
+            
+            'c_category'=>'required|max:15'
+            
+            
+
+
+            
+        ]); 
+
+
+//insert statrs
+
+       //echo $req;
+
+       DB::table('t_category')->insert([
+    ['c_category' => $req->c_category
+   
+    
+
+
+    ]
+    
+    
+]);
+
+//insert ends
+
+       
+       $req->session()->flash('msg', "✔ New category added");
+        		return back();
+
+		
+		
+
+	}
+	//addCategory ENDS
+
+
+
+
+
+
+//*************    add category page ends       ************
 
 
 
