@@ -48,6 +48,7 @@ UMS-Add Book
     <tr align="center" bgcolor="#64e885" >
       <td>ID</td>
       <td>NAME</td>
+      <td>CATEGORY</td>
       <td>PRICE</td>
       <td>AUTHOR</td>
       <td>DESCRIPTION</td>
@@ -61,6 +62,7 @@ UMS-Add Book
 
         <td bgcolor="#faa693" >{{$s->b_id}}</td>
         <td  bgcolor="#1bf7f7" >{{$s->b_name}}</td>
+        <td  bgcolor="#1bf7f7" >{{$s->b_category}}</td>
         <td  bgcolor="#1bf7f7" >{{$s->b_price}}</td>
         <td  bgcolor="#1bf7f7" >{{$s->b_author}}</td>
         <td  bgcolor="#1bf7f7" >{{$s->b_description}}</td>
@@ -86,7 +88,20 @@ UMS-Add Book
     
     
 
-    <tr style="outline: thin solid" ><td colspan="3" > <p><input class="a" placeholder="Write new book name here *"  name="b_name"></p></td>
+    <tr style="outline: thin solid" ><td colspan="1" > <p><input class="a" placeholder="Write new book name here *"  name="b_name"></p></td>
+      <td colspan="1"  >
+        <select name="b_category" id="mySelect2">
+                <?php
+
+                for ($x = 0; $x <(count($categoryList)); $x++) {
+    echo "<option value='".$categoryList[$x]->c_category."'>".$categoryList[$x]->c_category."</option>";
+ }
+       ?>
+
+  
+              </select>
+
+      </td>
      
      </tr>
 

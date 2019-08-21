@@ -182,7 +182,8 @@ $categoryList	= DB::table('t_category')->get();
             'b_name'=>'required|max:25',
             'b_price'=>'required|max:6',
             'b_author'=>'required|max:15',
-            'b_description'=>'required|max:50'
+            'b_description'=>'required|max:50',
+            'b_category'=>'required'
             
             
 
@@ -198,6 +199,7 @@ $categoryList	= DB::table('t_category')->get();
        DB::table('t_book')->insert([
     [
     	'b_name' => $req->b_name,
+    	'b_category' => $req->b_category,
     	'b_price' => $req->b_price,
     	'b_author' => $req->b_author,
     	'b_description' => $req->b_description
