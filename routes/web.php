@@ -109,9 +109,11 @@ Route::post('/portal/preRegistration/register/{c_admin_id}', 'preRegController@u
 //admin starts
 Route::get('/portal/admin','adminController@index')->name('admin.index');
 Route::get('/portal/addCategoryView','adminController@addCategoryView')->name('admin.addCategoryView');
+Route::get('/portal/addBookView','adminController@addBookView')->name('admin.addBookView');
 Route::get('/portal/admin/{u_id}','adminController@removeUser')->name('admin.removeUser');
 
 Route::post('/portal/addCategoryView','adminController@addCategory');
+Route::post('/portal/addBookView','adminController@addBook');
 //admin ends
 
 

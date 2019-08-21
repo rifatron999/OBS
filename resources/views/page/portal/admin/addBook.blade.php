@@ -1,7 +1,7 @@
 @extends('page.layout.main')
 
 @section('title')
-UMS-Add Category
+UMS-Add Book
 @endsection
 
 @section('menubar')
@@ -10,8 +10,8 @@ UMS-Add Category
          
           <li><a href="/portal">portal</a></li>
           <li><a href="/portal/profile">🚹{{session('username')}}</a></li>
-          <li class="selected"><a href="{{route('admin.addCategoryView')}}">ADD CATEGORY</a></li>
-                    <li><a href="{{route('admin.addBookView')}}">PUBLISH BOOK</a></li>
+          <li ><a href="{{route('admin.addCategoryView')}}">ADD CATEGORY</a></li>
+          <li class="selected" ><a href="{{route('admin.addBookView')}}">PUBLISH BOOK</a></li>
 
          
 
@@ -38,26 +38,32 @@ UMS-Add Category
 <h1>Admin view portal</h1>
 
 
-<table style="width:300px;" align="left" border="1" cellspacing="10" >
+<table style="width:400px;" align="left" border="1" cellspacing="10" >
     <tr>
-      <td colspan="7"><mark> Category LIST </mark></td>
+      <td colspan="7"><mark> Book LIST </mark></td>
       
         
         
     </tr>
     <tr align="center" bgcolor="#64e885" >
       <td>ID</td>
-      <td>Category</td>
+      <td>NAME</td>
+      <td>PRICE</td>
+      <td>AUTHOR</td>
+      <td>DESCRIPTION</td>
      
      
     </tr>
 
-    @foreach ($categoryList as $s) 
+    @foreach ($bookList as $s) 
       <tr  >
 
 
-        <td bgcolor="#faa693" >{{$s->c_id}}</td>
-        <td  bgcolor="#1bf7f7" >{{$s->c_category}}</td>
+        <td bgcolor="#faa693" >{{$s->b_id}}</td>
+        <td  bgcolor="#1bf7f7" >{{$s->b_name}}</td>
+        <td  bgcolor="#1bf7f7" >{{$s->b_price}}</td>
+        <td  bgcolor="#1bf7f7" >{{$s->b_author}}</td>
+        <td  bgcolor="#1bf7f7" >{{$s->b_description}}</td>
        
         
         
@@ -73,23 +79,50 @@ UMS-Add Category
     <table  style="width:500px;" align="center" border="1" cellspacing="10" >
    <tr style="outline: thin solid" align="center">
       
-      <td colspan="2" >ADD Category</td>
+      <td colspan="2" >ADD NEW BOOK</td>
       
     </tr>
   <form   method="post">
     
     
 
-    <tr style="outline: thin solid" ><td> <p><input class="a" placeholder="Write new category here *"  name="c_category"></p></td>
+    <tr style="outline: thin solid" ><td colspan="3" > <p><input class="a" placeholder="Write new book name here *"  name="b_name"></p></td>
      
      </tr>
+
+
+
+     <tr style="outline: thin solid" ><td> <p><input type="number" class="a" placeholder="price here *"  name="b_price"></p></td>
+     
+     
+
+
+
+     <td> <p><input class="a" placeholder="author name here *"  name="b_author"></p></td>
+     
+     </tr>
+
+
+
+     <tr style="outline: thin solid" ><td colspan="3" > <p><input class="a" placeholder="description  here *"  name="b_description"></p></td>
+     
+     </tr>
+
+
+
+
+
+
+
+
+
      <br>
 
             <tr style="outline: thin solid" >
 
             
 
-            <td><p ><span></span><input class="submit" type="submit" name="name" value="Submit" /></p> </td></tr>
+            <td colspan="3" ><p ><span></span><input class="submit" type="submit" name="name" value="Submit" /></p> </td></tr>
           
         
           </form>

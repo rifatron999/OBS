@@ -1,7 +1,7 @@
 @extends('page.layout.main')
 
 @section('title')
-UMS-portal
+OBS-portal
 @endsection
 
 @section('menubar')
@@ -11,6 +11,7 @@ UMS-portal
           <li class="selected"><a href="/portal">portal</a></li>
           <li><a href="/portal/profile">🚹{{session('username')}}</a></li>
           <li><a href="{{route('admin.addCategoryView')}}">ADD CATEGORY</a></li>
+          <li><a href="{{route('admin.addBookView')}}">PUBLISH BOOK</a></li>
           <li><a href="/logout">Logout</a></li>
         </ul>
 @endsection

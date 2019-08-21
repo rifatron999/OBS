@@ -142,10 +142,85 @@ $categoryList	= DB::table('t_category')->get();
 
 
 
+//*************    add book page starts       ************
+
+//addCategoryView starts
+
+
+     public function addBookView(Request $request){
+    	if($request->session()->get('type') == 'admin'){
+
+$bookList	= DB::table('t_book')->get();
+$categoryList	= DB::table('t_category')->get();
+
+
+/*$facultySemList	= DB::table('t_semester')->get();*/
+
+//echo $bookList;
+
+
+		return view('page.portal.admin.addBook',  ['bookList' => $bookList],['categoryList' => $categoryList]);
+		}
+	else{
+		$request->session()->flash('msg', "UNAUTHORIZED");
+            return redirect()->route('login.index');
+        }
+	}
+	//addBookView ends
 
 
 
 
+//addBook STARTS
+
+	 public function addBook(Request $req){
+		
+		
+       $req->validate([
+
+            
+            'b_name'=>'required|max:25',
+            'b_price'=>'required|max:6',
+            'b_author'=>'required|max:15',
+            'b_description'=>'required|max:50'
+            
+            
+
+
+            
+        ]); 
+
+
+//insert statrs
+
+       echo $req;
+
+       DB::table('t_book')->insert([
+    [
+    	'b_name' => $req->b_name,
+    	'b_price' => $req->b_price,
+    	'b_author' => $req->b_author,
+    	'b_description' => $req->b_description
+   
+    
+
+
+    ]
+    
+    
+]);
+
+//insert ends
+
+       
+       $req->session()->flash('msg', "✔ New book published");
+        		return back();
+
+		
+		
+
+	}
+	//addBook ENDS
 
 
 
