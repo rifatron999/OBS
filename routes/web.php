@@ -106,6 +106,8 @@ Route::post('/portal/preRegistration/register/{c_admin_id}', 'preRegController@u
 
 //admin starts
 Route::get('/portal/admin','adminController@index')->name('admin.index');
+
+Route::get('/portal/admin/{u_id}','adminController@removeUser')->name('admin.removeUser');
 //admin ends
 
 

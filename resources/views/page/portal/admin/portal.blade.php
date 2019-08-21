@@ -33,6 +33,55 @@ UMS-portal
 <h1>Admin view portal</h1>
 
 
+<table style="width:1200px;" align="left" border="1" cellspacing="10" >
+    <tr>
+      <td colspan="7"><mark> USER LIST </mark></td>
+      
+        
+        
+    </tr>
+    <tr align="center" bgcolor="#64e885" >
+      <td>USER ID</td>
+      <td>USER NAME</td>
+     
+      <td>USER D-O-B</td>
+      <td>USER GENDER</td>
+      <td>USER EMAIL</td>
+      <td>USER TYPE</td>
+      <td>ACTION</td>
+    </tr>
+
+    @foreach ($totalUserList as $s) 
+      <tr  >
+
+
+        <td bgcolor="#faa693" >{{$s->u_id}}</td>
+        <td  bgcolor="#1bf7f7" >{{$s->u_name}}</td>
+       
+        <td bgcolor="#1bf7f7" >{{$s->u_dob}}</td>
+        <td bgcolor="#faa693" >{{$s->u_gender}}</td>
+        <td bgcolor="#1bf7f7" >{{$s->u_email}}</td>
+        <td bgcolor="#1bf7f7" >{{$s->u_type}}</td>
+        <td bgcolor="#64e885" >
+
+        <?php
+        if($s->u_type == 'customer')
+        { ?>
+           <a  href="{{route('admin.removeUser',$s->u_id )}}">✘</a>
+            <?php
+
+        }
+
+?>
+        
+         
+        </td>
+      </tr>
+       @endforeach
+   
+    </table>
+
+
 
 
 
